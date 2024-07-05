@@ -1,9 +1,9 @@
 [project]
 name = "hublink"
 authors = [
-    { name = "Ahmed Elnagar", email = "ahmed.m.elngar@gmail.com"}
+    { name = "AHMED ELNAGAR", email = "ahmed.m.elngar@gmail.com"}
 ]
-description = "ERP.Hublink"
+description = "Hublink shipping llc "
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]

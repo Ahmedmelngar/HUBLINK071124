@@ -1,7 +1,7 @@
 app_name = "hublink"
-app_title = "Hublink "
-app_publisher = "Ahmed Elnagar"
-app_description = "ERP.Hublink"
+app_title = "Hublink"
+app_publisher = "AHMED ELNAGAR"
+app_description = "Hublink shipping llc "
 app_email = "ahmed.m.elngar@gmail.com"
 app_license = "mit"
 # required_apps = []
