@@ -1,0 +1,272 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2024-07-09 19:38:10.882438",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_9ymc",
+  "column_break_owmo",
+  "job_ref",
+  "shipment_status",
+  "column_break_emvq",
+  "transport_mode",
+  "shipment_type",
+  "column_break_hdix",
+  "column_break_lsqi",
+  "master_bl_no",
+  "house_bl_no",
+  "section_break_xxqy",
+  "column_break_ywgs",
+  "cargo_type",
+  "service_mode",
+  "column_break_jrif",
+  "incoterms",
+  "courier_shipment",
+  "transshipment",
+  "column_break_wefh",
+  "shipper",
+  "shipper_address",
+  "column_break_mrxh",
+  "consignee",
+  "consignee_address",
+  "section_break_equf",
+  "custmer",
+  "sales_agent",
+  "from_quote",
+  "column_break_ablb",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_9ymc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "job_ref",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Booking Ref / Nomination No",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hdix",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "master_bl_no",
+   "fieldtype": "Data",
+   "label": "Master BL No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "house_bl_no",
+   "fieldtype": "Data",
+   "label": "House BL No"
+  },
+  {
+   "fieldname": "column_break_emvq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "courier_shipment",
+   "fieldtype": "Check",
+   "label": "Courier Shipment",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_xxqy",
+   "fieldtype": "Section Break",
+   "is_virtual": 1,
+   "label": "General Details"
+  },
+  {
+   "fieldname": "column_break_ywgs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_owmo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shipment_status",
+   "fieldtype": "Data",
+   "label": "Status",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_lsqi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "transport_mode",
+   "fieldtype": "Link",
+   "label": "Transport Mode",
+   "options": "Transport Mode",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shipment_type",
+   "fieldtype": "Link",
+   "label": "Shipment Type",
+   "options": "Shipment Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cargo_type",
+   "fieldtype": "Link",
+   "label": "Cargo Type",
+   "options": "Cargo Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_mode",
+   "fieldtype": "Data",
+   "label": "Service Mode",
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "column_break_jrif",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "incoterms",
+   "fieldtype": "Data",
+   "label": "Incoterms"
+  },
+  {
+   "fieldname": "column_break_wefh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shipper",
+   "fieldtype": "Data",
+   "label": "Shipper"
+  },
+  {
+   "fieldname": "shipper_address",
+   "fieldtype": "Autocomplete",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_mrxh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "consignee",
+   "fieldtype": "Data",
+   "label": "Consignee"
+  },
+  {
+   "fieldname": "consignee_address",
+   "fieldtype": "Autocomplete",
+   "label": "Address"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_equf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "custmer",
+   "fieldtype": "Data",
+   "label": "Custmer "
+  },
+  {
+   "fieldname": "sales_agent",
+   "fieldtype": "Data",
+   "label": "Sales Agent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_quote",
+   "fieldtype": "Data",
+   "label": "From Quote",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ablb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Shipment card",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "transshipment",
+   "fieldtype": "Check",
+   "label": "Transshipment",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "make_attachments_public": 1,
+ "modified": "2024-07-11 21:09:22.743624",
+ "modified_by": "Administrator",
+ "module": "Hublink",
+ "name": "Shipment card",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}
