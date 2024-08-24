@@ -4,6 +4,16 @@ app_publisher = "AHMED ELNAGAR"
 app_description = "Hublink shipping llc "
 app_email = "ahmed.m.elngar@gmail.com"
 app_license = "mit"
+
+
+
+fixtures =["Custom Field"]
+
+
+
+
+
+
 # required_apps = []
 
 # Includes in <head>
