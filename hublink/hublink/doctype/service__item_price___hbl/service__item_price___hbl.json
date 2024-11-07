@@ -1,0 +1,350 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "hash",
+ "creation": "2024-08-31 15:08:57.887634",
+ "default_view": "List",
+ "description": "Log the selling and buying rate of an Item",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "item_name",
+  "uom",
+  "item_description",
+  "price_list_details",
+  "price_list",
+  "customer",
+  "supplier",
+  "batch_no",
+  "column_break_3",
+  "buying",
+  "selling",
+  "is_shipping_or_transportation",
+  "shipment_price_type",
+  "section_break_biwo",
+  "place_of_receipt",
+  "column_break_vnpn",
+  "port_of_loading",
+  "column_break_fkap",
+  "port_of_discharge",
+  "column_break_selw",
+  "place_of_delivery",
+  "item_details",
+  "price_list_rate",
+  "currency",
+  "reference",
+  "column_break_mcwp",
+  "valid_from",
+  "valid_upto",
+  "lead_time_days",
+  "section_break_24",
+  "note",
+  "brand",
+  "column_break_zeqb",
+  "terms"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Item Code",
+   "oldfieldname": "price_list_name",
+   "oldfieldtype": "Select",
+   "options": "Item",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "item_code.stock_uom",
+   "fetch_if_empty": 1,
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "item_code.brand",
+   "fieldname": "brand",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Brand",
+   "options": "Brand",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_description",
+   "fieldtype": "Text",
+   "label": "Item Description",
+   "read_only": 1
+  },
+  {
+   "fieldname": "price_list_details",
+   "fieldtype": "Section Break",
+   "label": "Price List",
+   "options": "fa fa-tags"
+  },
+  {
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Price List",
+   "options": "Price List",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "bold": 1,
+   "depends_on": "eval:doc.selling == 1",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "depends_on": "eval:doc.buying == 1",
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "label": "Batch No",
+   "options": "Batch"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "buying",
+   "fieldtype": "Check",
+   "label": "Buying",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "selling",
+   "fieldtype": "Check",
+   "label": "Selling",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item_details",
+   "fieldtype": "Section Break",
+   "options": "fa fa-tag"
+  },
+  {
+   "bold": 1,
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "price_list_rate",
+   "fieldtype": "Currency",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Rate",
+   "oldfieldname": "ref_rate",
+   "oldfieldtype": "Currency",
+   "options": "currency",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "valid_from",
+   "fieldtype": "Date",
+   "label": "Valid From"
+  },
+  {
+   "default": "0",
+   "fieldname": "lead_time_days",
+   "fieldtype": "Int",
+   "label": "Lead Time in days"
+  },
+  {
+   "fieldname": "valid_upto",
+   "fieldtype": "Date",
+   "label": "Valid Upto"
+  },
+  {
+   "fieldname": "section_break_24",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Text",
+   "label": "Note"
+  },
+  {
+   "fieldname": "reference",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Reference or supporting documents of price",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_shipping_or_transportation",
+   "fieldtype": "Check",
+   "label": "is Shipping or Transportation"
+  },
+  {
+   "fieldname": "section_break_biwo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.shipment_price_type == [\"DR/DR-Door to Door\"]|| \ndoc.shipment_price_type == [\"Local Movements\"]||\ndoc.shipment_price_type == [\"Pre/On-Carriage\"] ||\ndoc.shipment_price_type == [\"DR/CY-Door to Port\"]",
+   "fieldname": "place_of_receipt",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_standard_filter": 1,
+   "label": "Place of Receipt",
+   "mandatory_depends_on": "eval:doc.shipment_price_type == [\"DR/DR-Door to Door\"]|| \ndoc.shipment_price_type == [\"Local Movements\"]||\ndoc.shipment_price_type == [\"DR/CY-Door to Port\"]"
+  },
+  {
+   "fieldname": "column_break_vnpn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.shipment_price_type == [\"DR/CY-Door to Port\"]|| \ndoc.shipment_price_type == [\"DR/DR-Door to Door\"]|| \ndoc.shipment_price_type == [\"CY/DR Port to Door\"]|| \ndoc.shipment_price_type == [\"CY/CY-Port to Port\"]||\ndoc.shipment_price_type == [\"Pre/On-Carriage\"] ",
+   "fieldname": "port_of_loading",
+   "fieldtype": "Data",
+   "label": "Port of Loading",
+   "mandatory_depends_on": "eval:doc.shipment_price_type == [\"DR/CY-Door to Port\"]|| \ndoc.shipment_price_type == [\"DR/DR-Door to Door\"]|| \ndoc.shipment_price_type == [\"CY/DR Port to Door\"]|| \ndoc.shipment_price_type == [\"CY/CY-Port to Port\"]"
+  },
+  {
+   "fieldname": "column_break_fkap",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.shipment_price_type == [\"DR/CY-Door to Port\"]|| \ndoc.shipment_price_type == [\"DR/DR-Door to Door\"]|| \ndoc.shipment_price_type == [\"CY/DR Port to Door\"]|| \ndoc.shipment_price_type == [\"CY/CY-Port to Port\"]||\ndoc.shipment_price_type == [\"Pre/On-Carriage\"] ",
+   "fieldname": "port_of_discharge",
+   "fieldtype": "Data",
+   "label": "Port of Discharge",
+   "mandatory_depends_on": "eval:doc.shipment_price_type == [\"DR/CY-Door to Port\"]|| \ndoc.shipment_price_type == [\"DR/DR-Door to Door\"]|| \ndoc.shipment_price_type == [\"CY/DR Port to Door\"]|| \ndoc.shipment_price_type == [\"CY/CY-Port to Port\"]"
+  },
+  {
+   "fieldname": "column_break_selw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.shipment_price_type == [\"DR/DR-Door to Door\"]|| \ndoc.shipment_price_type == [\"CY/DR Port to Door\"]|| \ndoc.shipment_price_type == [\"Local Movements\"]||\ndoc.shipment_price_type == [\"Pre/On-Carriage\"]",
+   "fieldname": "place_of_delivery",
+   "fieldtype": "Data",
+   "label": "Place of Delivery",
+   "mandatory_depends_on": "eval:doc.shipment_price_type == [\"DR/DR-Door to Door\"]|| \ndoc.shipment_price_type == [\"CY/DR Port to Door\"]|| \ndoc.shipment_price_type == [\"Local Movements\"]||\ndoc.shipment_price_type == [\"DR/DR-Door to Door\"]"
+  },
+  {
+   "depends_on": "eval:doc.is_shipping_or_transportation==1",
+   "fieldname": "shipment_price_type",
+   "fieldtype": "Select",
+   "label": "Shipment price Type",
+   "mandatory_depends_on": "eval:doc.is_shipping_or_transportation==1",
+   "options": "\nPre/On-Carriage\nCY/CY-Port to Port\nDR/CY-Door to Port\nDR/DR-Door to Door\nCY/DR Port to Door\nLocal Movements"
+  },
+  {
+   "fieldname": "column_break_mcwp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zeqb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "terms",
+   "fieldtype": "Text",
+   "label": "Terms "
+  }
+ ],
+ "icon": "fa fa-flag",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-31 17:04:03.513842",
+ "modified_by": "Administrator",
+ "module": "Hublink",
+ "name": "Service  Item Price - HBL",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales Master Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Master Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operations Assistant",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "item_name",
+ "track_changes": 1
+}
